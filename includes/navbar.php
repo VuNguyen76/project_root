@@ -36,7 +36,7 @@
                 <li><a href="/project_root/templates/admin/manage_orders.php">Quản lý đơn hàng</a></li>
                 <li><a href="/project_root/templates/admin/manage_payments.php">Quản lý thanh toán</a></li>
                 <li><a href="/project_root/templates/admin/manage_accounts.php">Quản lý tài khoản</a></li> <!-- Thêm liên kết -->
-                <li><a href="/project_root/wbingosite.com/home.php">Đăng xuất</a></li> <!-- Nút đăng xuất -->
+                <li><a href="/project_root/templates/auth/logout.php">Đăng xuất</a></li> <!-- Nút đăng xuất -->
             </ul>
             <br>
         </div>

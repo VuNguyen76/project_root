@@ -26,10 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             exit();
         } else {
-            echo "Sai mật khẩu!";
+            echo "<div class='alert alert-danger text-center'>Sai mật khẩu!</div>";
         }
     } else {
-        echo "Tài khoản không tồn tại!";
+        echo "<div class='alert alert-danger text-center'>Tài khoản không tồn tại!</div>";
     }
 }
 ?>
@@ -41,21 +41,74 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        a {
+            color: #007bff;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Đăng nhập</h1>
-    <form method="POST" action="login.php">
-        <div>
-            <label for="username">Tên người dùng hoặc Email:</label>
-            <input type="text" name="username" id="username" required>
+    <div class="login-container">
+        <h1 class="text-center">Đăng nhập</h1>
+        <form method="POST" action="login.php">
+            <div class="form-group">
+                <label for="username">Tên người dùng hoặc Email:</label>
+                <input type="text" class="form-control" name="username" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mật khẩu:</label>
+                <input type="password" class="form-control" name="password" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+        </form>
+        <div class="text-center mt-3">
+            <a href="#">Quên mật khẩu?</a>
         </div>
-        <div>
-            <label for="password">Mật khẩu:</label>
-            <input type="password" name="password" id="password" required>
-        </div>
-        <button type="submit">Đăng nhập</button>
-    </form>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
