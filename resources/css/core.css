@@ -1,0 +1,83 @@
+/*màu chữ */
+.t-white { color: white; }
+.t-black { color: black; }
+.t-red { color: red; }
+.t-blue { color: blue; }
+.t-green { color: green; }
+.t-yellow { color: yellow; }
+.t-orange { color: orange; }
+.t-purple { color: purple; }
+.t-pink { color: pink; }
+.t-brown { color: brown; }
+.t-gray { color: gray; }
+.t-dark-gray { color: #333333; }
+.t-light-gray { color: #d3d3d3; }
+.t-cyan { color: cyan; }
+.t-magenta { color: magenta; }
+.t-teal { color: teal; }
+.t-navy { color: navy; }
+.t-maroon { color: maroon; }
+.t-olive { color: olive; }
+.t-lime { color: lime; }
+.t-gold { color: gold; }
+.t-silver { color: silver; }
+.t-indigo { color: indigo; }
+.t-violet { color: violet; }
+.t-crimson { color: crimson; }
+.t-salmon { color: salmon; }
+.t-tomato { color: tomato; }
+
+
+/*vi tri văn bản*/
+.t-right {text-align: right;}
+/* Căn lề trái */
+.t-left {text-align: left;}
+/* Căn giữa */
+.t-center {text-align: center;}
+/* Căn đều hai bên */
+.t-justify {text-align: justify;}
+/* Căn lề trên */
+.t-top {vertical-align: top;}
+/* Căn lề giữa theo chiều dọc */
+.t-middle {vertical-align: middle;}
+/* Căn lề dưới */
+.t-bottom { vertical-align: bottom;}
+
+
+/*size chữ*/ 
+.t10{font-size:10px;}
+.t20{font-size:20px;}
+/* màu chữ + nền */
+.mau1 {
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+  
+  .mau2 { background-color: #F0F0F0;
+    color: #003366;
+  }
+  
+  .mau3 {
+    background-color: #E6F7FF;
+    color: #000000;
+  }
+  
+  .mau4 {
+    background-color: #F5F5DC;
+    color: #654321;
+  }
+  
+  .mau5 {
+    background-color: #E8F5E9;
+    color: #2E7D32;
+  }
+  
+  .mau6 {
+    background-color: #FFF0F5;
+    color: #333333;
+  }
+  
+  .mau7 {
+    background-color: #FFFACD;
+    color: #000000;
+  }
