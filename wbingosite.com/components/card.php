@@ -1,9 +1,9 @@
 
-<link rel="stylesheet" href="resources/css/card.css" />
+<link rel="stylesheet" href="../resources/css/card.css" />
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="resources/js/card.js"></script>
+<script src="../resources/js/card.js"></script>
 <section class="container-card">
   <div class="container-card-mini">
     <div class="card-title"> <!-- quay lai mua sam  -->
@@ -15,11 +15,13 @@
             <p>You have 4 items in your cart</p>
             <input id="chonhet" type="checkbox">
           </div>
-          <div>
-            <p><span>Sort by:</span> <a href="#!">price <i class="fas fa-angle-down"></i></a></p>
-          </div>
+         <div>
+            <p><span>Sort by:</span> <a href="#!" id="sortPrice">price <i class="fas fa-angle-down"></i></a></p>
+        </div>
+
         </div>
         <div class="container-card-product b1">
+<!-- --------------------Sản phẩm từ đây----------------------------------- -->
           <div class="card-product b2">
                 <div class="row">
                   <div class="anh">
@@ -38,128 +40,9 @@
                     <a href="#!"><i class="fas fa-trash-alt"></i></a>
                   </div>
                </div>
-               <div class="row">
-                  <div class="anh">
-                  <input name="chon" id="chon" value="2" class="chon" type="checkbox">
-                    <img
-                      src="https://cdn.nguyenkimmall.com/images/detailed/644/10043313-dien-thoai-samsung-a507fnds-64gb-den-1.jpg"
-                      alt="Shopping item">
-                      <div class="thongtin">
-                        <p>Iphone 11 pro</p>
-                        <p>256GB, Navy Blue</p>
-                      </div>
-                  </div>
-                   <div class="soluong">
-                    <p>2</p>
-                    <p>$900</p>              
-                    <a href="#!"><i class="fas fa-trash-alt"></i></a>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="anh">
-                  <input name="chon" id="chon" value="3" class="chon" type="checkbox">
-                    <img
-                      src="https://cdn.nguyenkimmall.com/images/detailed/644/10043313-dien-thoai-samsung-a507fnds-64gb-den-1.jpg"
-                      alt="Shopping item">
-                      <div class="thongtin">
-                        <p>Iphone 11 pro</p>
-                        <p>256GB, Navy Blue</p>
-                      </div>
-                  </div>
-                   <div class="soluong">
-                    <p>2</p>
-                    <p>$900</p>              
-                    <a href="#!"><i class="fas fa-trash-alt"></i></a>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="anh">
-                  <input name="chon" id="chon" value="4" class="chon" type="checkbox">
-                    <img
-                      src="https://cdn.nguyenkimmall.com/images/detailed/644/10043313-dien-thoai-samsung-a507fnds-64gb-den-1.jpg"
-                      alt="Shopping item">
-                      <div class="thongtin">
-                        <p>Iphone 11 pro</p>
-                        <p>256GB, Navy Blue</p>
-                      </div>
-                  </div>
-                   <div class="soluong">
-                    <p>2</p>
-                    <p>$900</p>              
-                    <a href="#!"><i class="fas fa-trash-alt"></i></a>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="anh">
-                  <input name="chon" id="chon" value="5" class="chon" type="checkbox">
-                    <img
-                      src="https://cdn.nguyenkimmall.com/images/detailed/644/10043313-dien-thoai-samsung-a507fnds-64gb-den-1.jpg"
-                      alt="Shopping item">
-                      <div class="thongtin">
-                        <p>Iphone 11 pro</p>
-                        <p>256GB, Navy Blue</p>
-                      </div>
-                  </div>
-                   <div class="soluong">
-                    <p>2</p>
-                    <p>$900</p>              
-                    <a href="#!"><i class="fas fa-trash-alt"></i></a>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="anh">
-                  <input name="chon" id="chon" value="6" class="chon" type="checkbox">
-                    <img
-                      src="https://cdn.nguyenkimmall.com/images/detailed/644/10043313-dien-thoai-samsung-a507fnds-64gb-den-1.jpg"
-                      alt="Shopping item">
-                      <div class="thongtin">
-                        <p>Iphone 11 pro</p>
-                        <p>256GB, Navy Blue</p>
-                      </div>
-                  </div>
-                   <div class="soluong">
-                    <p>2</p>
-                    <p>$900</p>              
-                    <a href="#!"><i class="fas fa-trash-alt"></i></a>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="anh">
-                  <input name="chon" id="chon" value="7" class="chon" type="checkbox">
-                    <img
-                      src="https://cdn.nguyenkimmall.com/images/detailed/644/10043313-dien-thoai-samsung-a507fnds-64gb-den-1.jpg"
-                      alt="Shopping item">
-                      <div class="thongtin">
-                        <p>Iphone 11 pro</p>
-                        <p>256GB, Navy Blue</p>
-                      </div>
-                  </div>
-                   <div class="soluong">
-                    <p>2</p>
-                    <p>$900</p>              
-                    <a href="#!"><i class="fas fa-trash-alt"></i></a>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="anh">
-                  <input name="chon" id="chon" value="1" class="chon" type="checkbox">
-                    <img
-                      src="https://cdn.nguyenkimmall.com/images/detailed/644/10043313-dien-thoai-samsung-a507fnds-64gb-den-1.jpg"
-                      alt="Shopping item">
-                      <div class="thongtin">
-                        <p>Iphone 11 pro</p>
-                        <p>256GB, Navy Blue</p>
-                      </div>
-                  </div>
-                   <div class="soluong">
-                    <p>2</p>
-                    <p>$900</p>              
-                    <a href="#!"><i class="fas fa-trash-alt"></i></a>
-                  </div>
-               </div> 
             </div>
-         
-          <div class="container-checkout ">
+<!-- ------------------------------đặt hàng thanh toán ----------------------------------------->
+       <div class="container-checkout ">
             <div>
               <div class="b3">
                 <div class="checkout-title">
