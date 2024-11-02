@@ -19,6 +19,8 @@
                 <li><a href="../templates/admin/manage_orders.php">Quản lý đơn hàng</a></li>
                 <li><a href="../templates/admin/manage_payments.php">Quản lý thanh toán</a></li>
                 <li><a href="/project_root/templates/admin/manage_accounts.php">Quản lý tài khoản</a></li> <!-- Thêm liên kết -->
+                <li><a href="/project_root/templates/admin/manage_customers.php">Quản lý khách hàng</a></li> <!-- Quản lý khách hàng -->
+                <li><a href="/project_root/templates/admin/manage_reports.php">Thống kê doanh thu</a></li> <!-- Thống kê doanh thu -->
                 <li><a href="../templates/auth/login.php">Đăng xuất</a></li>
             </ul>
         </div>
@@ -29,13 +31,14 @@
 <div class="container-fluid">
     <div class="row content">
         <div class="col-sm-3 sidenav hidden-xs">
-            <h2>Logo</h2>
             <ul class="nav nav-pills nav-stacked">
                 <li><a href="/project_root/public/admin_dashboard.php">Dashboard</a></li> <!-- Đường dẫn tuyệt đối đến Dashboard -->
                 <li><a href="/project_root/templates/admin/manage_products.php">Quản lý sản phẩm</a></li>
                 <li><a href="/project_root/templates/admin/manage_orders.php">Quản lý đơn hàng</a></li>
                 <li><a href="/project_root/templates/admin/manage_payments.php">Quản lý thanh toán</a></li>
                 <li><a href="/project_root/templates/admin/manage_accounts.php">Quản lý tài khoản</a></li> <!-- Thêm liên kết -->
+                <li><a href="/project_root/templates/admin/manage_customers.php">Quản lý khách hàng</a></li> <!-- Quản lý khách hàng -->
+                <li><a href="/project_root/templates/admin/manage_reports.php">Thống kê doanh thu</a></li> <!-- Thống kê doanh thu -->
                 <li><a href="/project_root/templates/auth/logout.php">Đăng xuất</a></li> <!-- Nút đăng xuất -->
             </ul>
             <br>

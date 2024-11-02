@@ -7,8 +7,8 @@ if (!isset($_SESSION['username'])) {
 
 include '../../config/db.php';
 
-// Lấy danh sách sản phẩm từ database với các cột tương ứng
-$productQuery = "SELECT p.name, p.description, p.price, p.ram, p.rom, p.battery, b.name as brand_name 
+// Lấy danh sách sản phẩm từ database với các cột tương ứng, bao gồm cả cột image
+$productQuery = "SELECT p.name, p.description, p.price, p.ram, p.rom, p.battery, p.image, b.name as brand_name 
                  FROM products p 
                  JOIN brands b ON p.brand_id = b.id";
 $products = $conn->query($productQuery);
@@ -17,7 +17,7 @@ $products = $conn->query($productQuery);
 $totalProducts = $products->num_rows;
 ?>
 
-<link rel="stylesheet" type="text/css" href="/project_root/wbingosite.com/resources/product.css">
+<link rel="stylesheet" type="text/css" href="/project_root/assets/css/product.css">
 <div class="container">
     <div class="add-product">
         <div class="heading-1 t-left"><span>Danh sách sản phẩm</span></div>
@@ -33,23 +33,23 @@ $totalProducts = $products->num_rows;
                 <div class="product-grid">
                     <div class="product-item t-center">
                         <a href="" class="image">
-                            <!-- Hiển thị hình ảnh sản phẩm -->
-                            <img src="https://tse1.mm.bing.net/th?id=OIP.vz3cycLecmyDwRm64tRxUgHaHa&pid=Api&P=0&h=180" alt="Product Image">
+                            <!-- Hiển thị hình ảnh sản phẩm từ cột image trong cơ sở dữ liệu -->
+                            <img src="/project_root/uploads/<?php echo htmlspecialchars($product['image']); ?>" alt="Product Image">
                         </a>
-                        <div class=" t20">
+                        <div class="t20">
                             <div class="product-name">
-                                <a href="" title="<?php echo $product['name']; ?>"><?php echo $product['name']; ?></a>
+                                <a href="" title="<?php echo htmlspecialchars($product['name']); ?>"><?php echo htmlspecialchars($product['name']); ?></a>
                             </div>
                             <div class="product-brand">
-                                Thương hiệu: <?php echo $product['brand_name']; ?>
+                                Thương hiệu: <?php echo htmlspecialchars($product['brand_name']); ?>
                             </div>
                             <div class="product-description">
-                                Mô tả: <?php echo $product['description']; ?>
+                                Mô tả: <?php echo htmlspecialchars($product['description']); ?>
                             </div>
                             <div class="product-specs">
-                                <p>RAM: <?php echo $product['ram']; ?> GB</p>
-                                <p>ROM: <?php echo $product['rom']; ?> GB</p>
-                                <p>Pin: <?php echo $product['battery']; ?> mAh</p>
+                                <p>RAM: <?php echo htmlspecialchars($product['ram']); ?> GB</p>
+                                <p>ROM: <?php echo htmlspecialchars($product['rom']); ?> GB</p>
+                                <p>Pin: <?php echo htmlspecialchars($product['battery']); ?> mAh</p>
                             </div>
                             <div class="product-price t-red">
                                 <div class="price-sale"><?php echo number_format($product['price']); ?> đ</div>
