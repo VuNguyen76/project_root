@@ -34,30 +34,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="..\resources\css\login.css" >
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-
 <body>
-    <h1>Đăng nhập</h1>
-    <form method="POST" action="login.php">
-        <div>
-            <label for="username">Tên người dùng hoặc Email:</label>
-            <input type="text" name="username" id="username" required>
-        </div>
-        <div>
-            <label for="password">Mật khẩu:</label>
-            <input type="password" name="password" id="password" required>
-        </div>
-        <button type="submit">Đăng nhập</button>
-    </form>
-    <p>Bạn đã chưa có tài khoản? <a href="register.php">Đăng ký ngay</a></p>
+<div class="login-container">
+      <div class="login-header">Login</div>
+      <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" name="username" id="username" required>
+      </div>
+      <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" name="password" id="password" required>
+      </div>
+      <button class="login-button" type="submit" >Log in</button>
+      <div class="links">
+        <p>Bạn đã chưa có tài khoản?<a href="register.php">Register</a>Đăng ký ngay</a></p>
+      </div>
+  </div>
 </body>
-
 </html>
