@@ -26,7 +26,7 @@
     .panel-commit {padding: 2px 100px 2px 100px; }
     .uk-child-width-1-4 > .commit{
         display: flex; align-items: center;}
-    .fas, .fab{
+    .red{
         color:#DC143C;
         padding-top: 15px;
         font-size:30px;}
@@ -61,9 +61,9 @@
         .Categories ul {
             list-style-type: none;
             text-align: left;}
-    a{color: black;
+            .Categories a{color: black;
         text-decoration: none;}
-    a:hover { color:red;
+        .Categories a:hover { color:red;
             text-decoration: none;}
 /*---------------------------------------------------------*/
 .panel-baner2{padding: 20px 80px 5px;}
@@ -96,7 +96,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;}
-h3{background-color: #3dc2f2; margin: 15px;}
+    .pannel-product-container h3{background-color: #3dc2f2; margin: 15px;}
 .uk-grid{margin-left: 0;}
 .uk-card {padding-left: 0;} 
 
