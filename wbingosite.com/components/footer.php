@@ -1,62 +1,46 @@
-<footer></footer><?php
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Liên hệ chúng tôi:</h4>
+            <p>Địa chỉ: 123 Đường ABC, Quận 1, TP. Hồ Chí Minh</p>
+            <p>Điện thoại: 0123 456 789</p>
+            <p>Email: <a href="mailto:lienhe@banhang.com">lienhe@banhang.com</a></p>
+        </div>
+        <div class="footer-section">
+            <h4>Thông tin:</h4>
+            <ul>
+                <li><a href="#">Giới thiệu</a></li>
+                <li><a href="#">Chính sách bảo mật</a></li>
+                <li><a href="#">Điều khoản sử dụng</a></li>
+                <li><a href="#">Chính sách đổi trả</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Hỗ trợ khách hàng:</h4>
+            <ul>
+                <li><a href="#">Câu hỏi thường gặp</a></li>
+                <li><a href="#">Hướng dẫn mua hàng</a></li>
+                <li><a href="#">Hướng dẫn thanh toán</a></li>
+                <li><a href="#">Hướng dẫn vận chuyển</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Kết nối với chúng tôi:</h4>
+            <ul class="social-media">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+    </ul>
+</div>
 
-?>
-<style>
-    /* Đảm bảo toàn bộ trang có chiều cao tối thiểu là 100vh */
-    html,
-    body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    /* Thiết lập container-fluid bao phủ toàn bộ chiều cao */
-    .container-fluid {
-        min-height: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-
-    /* Nội dung chính sẽ chiếm toàn bộ không gian trống */
-    .content {
-        flex: 1;
-    }
-
-    /* Sticky footer */
-    .footer {
-        background-color: #007bff;
-        color: #fff;
-        padding: 20px 0;
-        text-align: center;
-        width: 100%;
-        box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .footer p {
-        margin: 0;
-        font-size: 14px;
-    }
-
-    .footer a {
-        color: #ffffff;
-        text-decoration: none;
-    }
-
-    .footer a:hover {
-        text-decoration: underline;
-    }
-</style>
-
-
-<footer class="footer bg-primary text-white text-center py-3">
-    <div class="container">
-        <p>&copy; 2024 Admin Dashboard. All Rights Reserved.</p>
-        <p>Powered by YourCompany</p>
+        <div class="footer-section">
+            <h4>Đăng ký nhận tin:</h4>
+            <p>Nhận thông tin khuyến mãi và cập nhật sản phẩm mới nhất.</p>
+            <form action="#" method="post">
+                <input type="email" name="email" placeholder="Nhập email của bạn">
+                <button type="submit">Đăng ký</button>
+            </form>
+        </div>
     </div>
 </footer>
-</div> <!-- Kết thúc nội dung chính -->
-</div> <!-- Kết thúc row content -->
-</div> <!-- Kết thúc container-fluid -->
-</body>
-
-</html>
