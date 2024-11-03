@@ -49,19 +49,19 @@ function getProductsByBrand($brand_id, $conn)
 <div class="panel-commit">
     <div class="uk-child-width-1-4" uk-grid>
         <div class="commit">
-            <i class="fas fa-truck"></i>
+            <i class="fas fa-truck red"></i>
             <p class="icon-text">Miễn phí vận chuyển <br> cho đơn hàng trên 500.000đ</p>
         </div>
         <div class="commit">
-            <i class="fas fa-sync"></i>
+            <i class="fas fa-sync red"></i>
             <p class="icon-text">Đổi trả dễ dàng trong 7 ngày</p>
         </div>
         <div class="commit">
-            <i class="fab fa-cc-amazon-pay"></i>
+            <i class="fab fa-cc-amazon-pay red"></i>
             <p class="icon-text">Thanh toán an toàn bảo mật</p>
         </div>
         <div class="commit">
-            <i class="fab fa-napster"></i>
+            <i class="fab fa-napster red"></i>
             <p class="icon-text">Hỗ trợ khách hàng 24/7</p>
         </div>
     </div>
@@ -162,7 +162,7 @@ function getProductsByBrand($brand_id, $conn)
                     echo '<div class="product-price"><div class="price-sale">' . number_format($product['price'], 0) . ' đ</div></div>';
 
                     // Nút giỏ hàng và trạng thái
-                    echo '<div class="product-sold color-2"><i class="fas fa-shopping-cart"></i> <div class="status"><span>Còn hàng</span></div></div>';
+                    echo '<div class="product-sold color-2"><i class="fas fa-shopping-cart red"></i> <div class="status"><span>Còn hàng</span></div></div>';
 
                     echo '</div>';
                     echo '</div>';
@@ -204,7 +204,7 @@ function getProductsByBrand($brand_id, $conn)
                     echo '<div class="product-price"><div class="price-sale">' . number_format($product['price'], 0) . ' đ</div></div>';
 
                     // Nút giỏ hàng và trạng thái
-                    echo '<div class="product-sold color-2"><i class="fas fa-shopping-cart"></i> <div class="status"><span>Còn hàng</span></div></div>';
+                    echo '<div class="product-sold color-2"><i class="fas fa-shopping-cart red "></i> <div class="status"><span>Còn hàng</span></div></div>';
 
                     echo '</div>';
                     echo '</div>';
@@ -246,7 +246,7 @@ function getProductsByBrand($brand_id, $conn)
                     echo '<div class="product-price"><div class="price-sale">' . number_format($product['price'], 0) . ' đ</div></div>';
 
                     // Nút giỏ hàng và trạng thái
-                    echo '<div class="product-sold color-2"><i class="fas fa-shopping-cart"></i> <div class="status"><span>Còn hàng</span></div></div>';
+                    echo '<div class="product-sold color-2"><i class="fas fa-shopping-cart red red "></i> <div class="status"><span>Còn hàng</span></div></div>';
 
                     echo '</div>';
                     echo '</div>';
