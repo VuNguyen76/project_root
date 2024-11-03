@@ -38,32 +38,35 @@ $conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng ký</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng ký </title>
+  <link rel="stylesheet" type="text/css" href="../resources/css/register.css" >
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-
 <body>
-    <h1>Đăng ký</h1>
-    <form method="POST" action="register.php">
-        <div>
-            <label for="username">Tên người dùng:</label>
-            <input type="text" name="username" id="username" required>
-        </div>
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" required>
-        </div>
-        <div>
-            <label for="password">Mật khẩu:</label>
-            <input type="password" name="password" id="password" required>
-        </div>
-        <button type="submit">Đăng ký</button>
-    </form>
-
-    <p>Bạn đã có tài khoản? <a href="login.php">Đăng nhập ngay</a></p>
+<div class="register-container">
+  <div class="register-header">ĐĂNG KÝ</div>
+      <form method="POST" action="register.php">
+      <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" name="username" id="username" require placeholder="Tên người dùng ">
+      </div>
+      <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="email" name="email" id="email" required  placeholder="Email">
+      </div>
+      <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" name="password" id="password" required placeholder="Mật khẩu">
+      </div>
+      <button class="register-button" type="submit">Đăng ký </button>
+      </form>
+      <div class="links">
+      <p>Bạn đã có tài khoản? <BR> <a href="login.php">Đăng nhập ngay</a></p>
+    </div>
+  </div>
 </body>
-
 </html>
