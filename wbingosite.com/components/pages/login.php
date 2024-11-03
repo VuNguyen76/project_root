@@ -39,25 +39,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <title>Đăng nhập</title>
   <link rel="stylesheet" type="text/css" href="..\resources\css\login.css" >
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
 <div class="login-container">
-      <div class="login-header">Login</div>
+      <div class="login-header">ĐĂNG NHẬP </div>
       <div class="input-group">
           <i class="fas fa-user"></i>
-          <input type="text" name="username" id="username" required>
+          <input type="text" name="username" id="username" required placeholder="Tên người dùng ">
       </div>
       <div class="input-group">
           <i class="fas fa-lock"></i>
-          <input type="password" name="password" id="password" required>
+          <input type="password" name="password" id="password" required placeholder="Mật khẩu">
       </div>
       <button class="login-button" type="submit" >Log in</button>
       <div class="links">
-        <p>Bạn đã chưa có tài khoản?<a href="register.php">Register</a>Đăng ký ngay</a></p>
+        <p>Bạn đã chưa có tài khoản? <BR><a href="register.php">Đăng ký ngay</a></p>
       </div>
   </div>
 </body>
