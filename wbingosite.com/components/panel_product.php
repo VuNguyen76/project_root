@@ -1,3 +1,20 @@
+<?php
+include $_SERVER['DOCUMENT_ROOT'] . '/project_root/config/db.php'; // Đảm bảo đường dẫn đến db.php là chính xác
+
+// Hàm lấy sản phẩm theo thương hiệu
+function getProductsByBrand($brand_id, $conn)
+{
+    $query = "SELECT products.*, brands.name AS brand_name 
+              FROM products 
+              JOIN brands ON products.brand_id = brands.id 
+              WHERE products.brand_id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $brand_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result;
+}
+?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link rel="stylesheet" href="/project_root/wbingosite.com/resources/css/pannel_product.css" />
 <!--Biển quảng cáo đầu trang-->
@@ -111,84 +128,88 @@
 </div>
 <div class="panel-product">
     <div class="uk-section uk-section-muted">
+
         <!-- Sản phẩm OPPO -->
-        <div class="pannel-product-container">
-            <h3>OPPO</h3>
-            <div class="uk-grid-match uk-child-width-1-5@m uk-child-width-1-3@s uk-child-width-1-2@xs" uk-grid>
-                <!-- Sản phẩm OPPO 1-4 -->
-                <?php for ($i = 1; $i <= 4; $i++) { ?>
-                    <div class="uk-card uk-card-default">
-                        <div class="uk-card-body">
-                            <div class="product-image">
-                                <a href="#">
-                                    <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/t/e/text_ng_n_7__2_102.png" alt="OPPO Image">
-                                </a>
-                            </div>
-                            <div class="product-review">
-                                <?php for ($j = 0; $j < 5; $j++) { ?>
-                                    <span class="uk-icon" uk-icon="star"></span>
-                                <?php } ?>
-                            </div>
-                            <div class="product-name">
-                                <a href="#" title="OPPO Product <?= $i ?>">
-                                    <h2>OPPO A3 - Product <?= $i ?></h2>
-                                </a>
-                            </div>
-                            <div class="product-price">
-                                <div class="price-sale">500.000 đ</div>
-                                <div class="price-main black" style="text-decoration: line-through;">900.000 đ</div>
-                            </div>
-                            <div class="product-sold color-2">
-                                <progress value="30" max="100"></progress>
-                                <div class="status">
-                                    <span>Còn hàng</span>
-                                    <span>Đã bán: <span class="special">3</span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php } ?>
-            </div>
-        </div>
-
-
-        <!-- Sản phẩm iPhone -->
         <div class="pannel-product-container">
             <h3>iPhone</h3>
             <div class="uk-grid-match uk-child-width-1-5@m uk-child-width-1-3@s uk-child-width-1-2@xs" uk-grid>
-                <!-- Sản phẩm iPhone 1-5 -->
-                <?php for ($i = 1; $i <= 5; $i++) { ?>
-                    <div class="uk-card uk-card-default">
-                        <div class="uk-card-body">
-                            <div class="product-image">
-                                <a href="#">
-                                    <img src="https://th.bing.com/th/id/OIP.99qJd0KiYicICEzUQ8l13wAAAA?rs=1&pid=ImgDetMain" alt="iPhone Image">
-                                </a>
-                            </div>
-                            <div class="product-review">
-                                <?php for ($j = 0; $j < 5; $j++) { ?>
-                                    <span class="uk-icon" uk-icon="star"></span>
-                                <?php } ?>
-                            </div>
-                            <div class="product-name">
-                                <a href="#" title="iPhone Product <?= $i ?>">
-                                    <h2>iPhone 14 - Product <?= $i ?></h2>
-                                </a>
-                            </div>
-                            <div class="product-price">
-                                <div class="price-sale">15.000.000 đ</div>
-                                <div class="price-main black" style="text-decoration: line-through;">18.000.000 đ</div>
-                            </div>
-                            <div class="product-sold color-2">
-                                <progress value="40" max="100"></progress>
-                                <div class="status">
-                                    <span>Còn hàng</span>
-                                    <span>Đã bán: <span class="special">5</span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php } ?>
+                <?php
+                $products = getProductsByBrand(1, $conn); // Giả sử brand_id = 1 là OPPO
+                while ($product = $products->fetch_assoc()) {
+                    echo '<div class="uk-card uk-card-default">';
+                    echo '<div class="uk-card-body">';
+
+                    // Hiển thị hình ảnh sản phẩm
+                    echo '<div class="product-image">';
+                    echo '<a href="#"><img src="/project_root/uploads/' . htmlspecialchars($product['image']) . '" alt="' . htmlspecialchars($product['name']) . '"></a>';
+                    echo '</div>';
+
+                    // Hiển thị tên sản phẩm và thương hiệu
+                    echo '<div class="product-name"><a href="#" title="' . htmlspecialchars($product['name']) . '"><h2>' . htmlspecialchars($product['name']) . '</h2></a></div>';
+                    echo '<div class="product-brand"><strong>Thương hiệu:</strong> ' . htmlspecialchars($product['brand_name']) . '</div>';
+
+                    // Hiển thị mô tả sản phẩm
+                    echo '<div class="product-description"><strong>Mô tả:</strong> ' . htmlspecialchars($product['description']) . '</div>';
+
+                    // Hiển thị thông tin RAM, ROM và pin
+                    echo '<div class="product-specs">';
+                    echo '<p><strong>RAM:</strong> ' . htmlspecialchars($product['ram']) . '</p>';
+                    echo '<p><strong>ROM:</strong> ' . htmlspecialchars($product['rom']) . '</p>';
+                    echo '<p><strong>Pin:</strong> ' . htmlspecialchars($product['battery']) . '</p>';
+                    echo '</div>';
+
+                    // Hiển thị giá bán
+                    echo '<div class="product-price"><div class="price-sale">' . number_format($product['price'], 0) . ' đ</div></div>';
+
+                    // Nút giỏ hàng và trạng thái
+                    echo '<div class="product-sold color-2"><i class="fas fa-shopping-cart"></i> <div class="status"><span>Còn hàng</span></div></div>';
+
+                    echo '</div>';
+                    echo '</div>';
+                }
+                ?>
+            </div>
+        </div>
+
+        <!-- Sản phẩm iPhone -->
+        <div class="pannel-product-container">
+            <h3>Oppo</h3>
+            <div class="uk-grid-match uk-child-width-1-5@m uk-child-width-1-3@s uk-child-width-1-2@xs" uk-grid>
+                <?php
+                $products = getProductsByBrand(2, $conn); // Giả sử brand_id = 2 là iPhone
+                while ($product = $products->fetch_assoc()) {
+                    echo '<div class="uk-card uk-card-default">';
+                    echo '<div class="uk-card-body">';
+
+                    // Hiển thị hình ảnh sản phẩm
+                    echo '<div class="product-image">';
+                    echo '<a href="#"><img src="/project_root/uploads/' . htmlspecialchars($product['image']) . '" alt="' . htmlspecialchars($product['name']) . '"></a>';
+                    echo '</div>';
+
+                    // Hiển thị tên sản phẩm và thương hiệu
+                    echo '<div class="product-name"><a href="#" title="' . htmlspecialchars($product['name']) . '"><h2>' . htmlspecialchars($product['name']) . '</h2></a></div>';
+                    echo '<div class="product-brand"><strong>Thương hiệu:</strong> ' . htmlspecialchars($product['brand_name']) . '</div>';
+
+                    // Hiển thị mô tả sản phẩm
+                    echo '<div class="product-description"><strong>Mô tả:</strong> ' . htmlspecialchars($product['description']) . '</div>';
+
+                    // Hiển thị thông tin RAM, ROM và pin
+                    echo '<div class="product-specs">';
+                    echo '<p><strong>RAM:</strong> ' . htmlspecialchars($product['ram']) . '</p>';
+                    echo '<p><strong>ROM:</strong> ' . htmlspecialchars($product['rom']) . '</p>';
+                    echo '<p><strong>Pin:</strong> ' . htmlspecialchars($product['battery']) . '</p>';
+                    echo '</div>';
+
+                    // Hiển thị giá bán
+                    echo '<div class="product-price"><div class="price-sale">' . number_format($product['price'], 0) . ' đ</div></div>';
+
+                    // Nút giỏ hàng và trạng thái
+                    echo '<div class="product-sold color-2"><i class="fas fa-shopping-cart"></i> <div class="status"><span>Còn hàng</span></div></div>';
+
+                    echo '</div>';
+                    echo '</div>';
+                }
+                ?>
             </div>
         </div>
 
@@ -196,41 +217,48 @@
         <div class="pannel-product-container">
             <h3>Redmi</h3>
             <div class="uk-grid-match uk-child-width-1-5@m uk-child-width-1-3@s uk-child-width-1-2@xs" uk-grid>
-                <!-- Sản phẩm Redmi 1-3 -->
-                <?php for ($i = 1; $i <= 3; $i++) { ?>
-                    <div class="uk-card uk-card-default">
-                        <div class="uk-card-body">
-                            <div class="product-image">
-                                <a href="#">
-                                    <img src="https://cdn.tgdd.vn/Products/Images/42/167535/xiaomi-redmi-note-7-xanh-duong-new-600x600-200x200.jpg" alt="Redmi Image">
-                                </a>
-                            </div>
-                            <div class="product-review">
-                                <?php for ($j = 0; $j < 5; $j++) { ?>
-                                    <span class="uk-icon" uk-icon="star"></span>
-                                <?php } ?>
-                            </div>
-                            <div class="product-name">
-                                <a href="#" title="Redmi Product <?= $i ?>">
-                                    <h2>Redmi Note - Product <?= $i ?></h2>
-                                </a>
-                            </div>
-                            <div class="product-price">
-                                <div class="price-sale">4.000.000 đ</div>
-                                <div class="price-main black" style="text-decoration: line-through;">6.000.000 đ</div>
-                            </div>
-                            <div class="product-sold color-2">
-                                <progress value="25" max="100"></progress>
-                                <div class="status">
-                                    <span>Còn hàng</span>
-                                    <span>Đã bán: <span class="special">2</span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php } ?>
+                <?php
+                $products = getProductsByBrand(3, $conn); // Giả sử brand_id = 3 là Redmi
+                while ($product = $products->fetch_assoc()) {
+                    echo '<div class="uk-card uk-card-default">';
+                    echo '<div class="uk-card-body">';
+
+                    // Hiển thị hình ảnh sản phẩm
+                    echo '<div class="product-image">';
+                    echo '<a href="#"><img src="/project_root/uploads/' . htmlspecialchars($product['image']) . '" alt="' . htmlspecialchars($product['name']) . '"></a>';
+                    echo '</div>';
+
+                    // Hiển thị tên sản phẩm và thương hiệu
+                    echo '<div class="product-name"><a href="#" title="' . htmlspecialchars($product['name']) . '"><h2>' . htmlspecialchars($product['name']) . '</h2></a></div>';
+                    echo '<div class="product-brand"><strong>Thương hiệu:</strong> ' . htmlspecialchars($product['brand_name']) . '</div>';
+
+                    // Hiển thị mô tả sản phẩm
+                    echo '<div class="product-description"><strong>Mô tả:</strong> ' . htmlspecialchars($product['description']) . '</div>';
+
+                    // Hiển thị thông tin RAM, ROM và pin
+                    echo '<div class="product-specs">';
+                    echo '<p><strong>RAM:</strong> ' . htmlspecialchars($product['ram']) . '</p>';
+                    echo '<p><strong>ROM:</strong> ' . htmlspecialchars($product['rom']) . '</p>';
+                    echo '<p><strong>Pin:</strong> ' . htmlspecialchars($product['battery']) . '</p>';
+                    echo '</div>';
+
+                    // Hiển thị giá bán
+                    echo '<div class="product-price"><div class="price-sale">' . number_format($product['price'], 0) . ' đ</div></div>';
+
+                    // Nút giỏ hàng và trạng thái
+                    echo '<div class="product-sold color-2"><i class="fas fa-shopping-cart"></i> <div class="status"><span>Còn hàng</span></div></div>';
+
+                    echo '</div>';
+                    echo '</div>';
+                }
+                ?>
             </div>
         </div>
 
     </div>
 </div>
+
+
+<?php
+$conn->close();
+?>

@@ -29,7 +29,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <div class="uk-container uk-container-1440">
             <div class="uk-flex uk-flex-between">
                 <div class="logo">
-                    <a href="" title="">
+                    <a href="/project_root/templates/auth/login.php" title="admin">
                         <!--Chỗ này thêm logo -->
                         <img src="resources/images/icon/the-gioi-di-dong-logo.png" alt="">
                     </a>
@@ -69,32 +69,37 @@ if (session_status() === PHP_SESSION_NONE) {
                 </div>
                 <div class="header-widget">
                     <div class="uk-flex">
-                        <a href="" class="widget-item">
-                            <span class="uk-icon" uk-icon="user"></span>
-                        </a>
+                    
                         <a href="" class="widget-item">
                             <span class="uk-icon" uk-icon="heart"></span>
                             <span class="number">0</span>
                         </a>
-                        <a href="" class="widget-item">
+                        <a href="components\card.php" class="widget-item">
                             <span class="uk-icon" uk-icon="cart"></span>
                             <span class="number">0</span>
                         </a>
-                        <span class="widget-login">
-                            <?php if (isset($_SESSION['username'])): ?>
+                        <a href="javascript:void(0);" class="widget-item" onclick="toggleAuthOptions()">
+                              <span class="uk-icon" uk-icon="user"></span></a>
+                            <!-- Menu thả xuống cho Đăng nhập/Đăng ký -->
+                            <span class="widget-login">
                                 <!-- Hiển thị khi người dùng đã đăng nhập -->
+                            <?php if (isset($_SESSION['username'])): ?>
                                 <div class="user-info">
-                                    <span>Chào mừng, <?php echo $_SESSION['username']; ?>!</span>
-                                    <a href="/project_root/wbingosite.com/components/pages/logout.php" class="btn-logout">Đăng xuất</a>
-                                </div>
-                            <?php else: ?>
-                                <!-- Hiển thị khi người dùng chưa đăng nhập -->
-                                <a href="/project_root/wbingosite.com/components/pages/login.php" class="btn-login">Đăng nhập</a>
-                                <a href="/project_root/wbingosite.com/components/pages/register.php" class="btn-register">Đăng ký</a>
+                                            <span>Chào mừng, <?php echo $_SESSION['username']; ?>!</span>
+                                            <a href="/project_root/wbingosite.com/components/pages/logout.php" class="btn-logout">Đăng xuất</a>
+                                        </div>
+                                        <?php else: ?>
+                                        <div id="authOptions" class="uk-dropdown uk-dropdown-bottom-left" uk-dropdown="mode: click; 
+                                        pos: bottom-left" style="display: none;">
+                                            <ul class="uk-nav uk-dropdown-nav">
+                                            <!-- <li><a href="/project_root/templates/auth/login.php">Đăng nhập addmin</a></li> -->
+                                            <li><a href="/project_root/wbingosite.com/components/pages/login.php" >Đăng nhập</a></li>
+                                            <li><a href="/project_root/wbingosite.com/components/pages/register.php">Đăng ký</a></li>
+                                            </ul>
+                                        </div>
                             <?php endif; ?>
-                        </span>
-                    </div>
-
+                            </span>
+                            </div>
                 </div>
             </div>
         </div>
@@ -151,3 +156,10 @@ if (session_status() === PHP_SESSION_NONE) {
     <div class="header-lower"></div>
 </header>
 -->
+<!-- JavaScript để hiện/ẩn menu -->
+<script>
+function toggleAuthOptions() {
+    var authOptions = document.getElementById("authOptions");
+    authOptions.style.display = (authOptions.style.display === "none" || authOptions.style.display === "") ? "contents" : "none";
+}
+</script>
