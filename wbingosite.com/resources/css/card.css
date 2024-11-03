@@ -1,9 +1,9 @@
 
 .container-card {
-  margin: 0; 
+  margin: 0 auto; 
   width:max-content; 
+  border:solid 1px;
 }
-
 
 p {
   font-size: 16px; /* Giảm font-size */
@@ -52,10 +52,6 @@ a {
 
 .pad-20 {
   margin: 0 10px;
-}
-
-.container-card-product {
-  display: flex;
 }
 
 input[type="checkbox"] {
