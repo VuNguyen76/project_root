@@ -18,6 +18,7 @@
         <hr>
         <div class="container-card-product">
           <?php
+          session_start();
           $servername = "localhost";
           $username = "root";
           $password = "";
@@ -28,31 +29,38 @@
             die("Kết nối thất bại: " . $conn->connect_error);
           }
 
-          $productQuery = "SELECT * FROM products";
-          $productResult = $conn->query($productQuery);
+          // Kiểm tra nếu giỏ hàng có sản phẩm
+          if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) {
+            $productIds = implode(",", array_map('intval', $_SESSION['cart'])); // Lấy danh sách ID sản phẩm
 
-          if ($productResult->num_rows > 0) {
-            while ($product = $productResult->fetch_assoc()) {
-              echo "<div class='card-product-item b2'>";
-              echo "<div class='item-image pad-20'>";
-              echo "<input type='checkbox' class='chon' value='" . $product['price'] . "' data-product-id='" . $product['id'] . "'>";
-              echo "<div class='border-soild'><img src='/project_root/uploads/" . htmlspecialchars($product['image']) . "' alt='" . htmlspecialchars($product['name']) . "'></div>";
-              echo "<div class='item-info'>";
-              echo "<p>" . htmlspecialchars($product['name']) . "</p>";
-              echo "<p>" . htmlspecialchars($product['ram']) . " RAM, " . htmlspecialchars($product['rom']) . " ROM</p>";
-              echo "<p>" . htmlspecialchars($product['battery']) . " mAh</p>";
-              echo "<p><em>" . htmlspecialchars($product['description']) . "</em></p>";
-              echo "</div>";
-              echo "</div>";
-              echo "<div class='dis-flex'>";
-              echo "<p>Giá:</p>";
-              echo "<p>" . number_format($product['price'], 0) . " VND</p>";
-              echo "</div>";
-              echo "<a href='delete_from_cart.php?product_id=" . $product['id'] . "'><i class='fas fa-trash-alt pad-5'></i></a>";
-              echo "</div>";
+            $productQuery = "SELECT * FROM products WHERE id IN ($productIds)";
+            $productResult = $conn->query($productQuery);
+
+            if ($productResult->num_rows > 0) {
+              while ($product = $productResult->fetch_assoc()) {
+                echo "<div class='card-product-item b2'>";
+                echo "<div class='item-image pad-20'>";
+                echo "<input type='checkbox' class='chon' value='" . $product['price'] . "' data-product-id='" . $product['id'] . "'>";
+                echo "<div class='border-soild'><img src='/project_root/uploads/" . htmlspecialchars($product['image']) . "' alt='" . htmlspecialchars($product['name']) . "'></div>";
+                echo "<div class='item-info'>";
+                echo "<p>" . htmlspecialchars($product['name']) . "</p>";
+                echo "<p>" . htmlspecialchars($product['ram']) . " RAM, " . htmlspecialchars($product['rom']) . " ROM</p>";
+                echo "<p>" . htmlspecialchars($product['battery']) . " mAh</p>";
+                echo "<p><em>" . htmlspecialchars($product['description']) . "</em></p>";
+                echo "</div>";
+                echo "</div>";
+                echo "<div class='dis-flex'>";
+                echo "<p>Giá:</p>";
+                echo "<p>" . number_format($product['price'], 0) . " VND</p>";
+                echo "</div>";
+                echo "<a href='delete_from_cart.php?product_id=" . $product['id'] . "'><i class='fas fa-trash-alt pad-5'></i></a>";
+                echo "</div>";
+              }
+            } else {
+              echo "<p>Không có sản phẩm nào.</p>";
             }
           } else {
-            echo "<p>Không có sản phẩm nào.</p>";
+            echo "<p>Giỏ hàng trống.</p>";
           }
 
           $conn->close();

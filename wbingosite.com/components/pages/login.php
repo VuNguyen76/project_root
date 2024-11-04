@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($user['role'] == 'admin') {
                 header('Location: /project_root/public/admin_dashboard.php');
             } else {
-                header('Location: /project_root/wbingosite.com/home.php'); // Chuyển hướng đến trang người dùng
+                header('Location: http://localhost/project_root/wbingosite.com/home.php'); // Chuyển hướng đến trang người dùng
             }
             exit();
         } else {
@@ -36,29 +36,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Đăng nhập</title>
-  <link rel="stylesheet" type="text/css" href="..\resources\css\login.css" >
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" type="text/css" href="..\..\resources\css\login.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
+
 <body>
-<div class="login-container">
-      <div class="login-header">ĐĂNG NHẬP </div>
-      <div class="input-group">
-          <i class="fas fa-user"></i>
-          <input type="text" name="username" id="username" required placeholder="Tên người dùng ">
-      </div>
-      <div class="input-group">
-          <i class="fas fa-lock"></i>
-          <input type="password" name="password" id="password" required placeholder="Mật khẩu">
-      </div>
-      <button class="login-button" type="submit" >Log in</button>
-      <div class="links">
-        <p>Bạn đã chưa có tài khoản? <BR><a href="register.php">Đăng ký ngay</a></p>
-      </div>
-  </div>
+    <div class="login-container">
+        <div class="login-header">ĐĂNG NHẬP</div>
+        <form method="POST" action="login.php">
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" name="username" id="username" required placeholder="Tên người dùng ">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" id="password" required placeholder="Mật khẩu">
+            </div>
+            <button class="login-button" type="submit">Log in</button>
+            <div class="links">
+                <p>Bạn đã chưa có tài khoản? <BR><a href="register.php">Đăng ký ngay</a></p>
+            </div>
+    </div>
 </body>
+
 </html>

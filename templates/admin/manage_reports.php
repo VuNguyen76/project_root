@@ -2,13 +2,13 @@
 session_start();
 include '../../config/db.php';
 
-// Tính toán tổng thu nhập theo ngày, tháng, năm và lấy dữ liệu cho biểu đồ
+// Hàm tính toán tổng thu nhập theo ngày, tháng, năm cho biểu đồ
 function calculateRevenue($conn)
 {
     // Tổng thu nhập theo ngày
     $dailyQuery = "SELECT DATE(payment_date) AS date, SUM(amount) AS total_revenue
                    FROM payments
-                   WHERE status = 'paid'
+                   WHERE status = 'completed'
                    GROUP BY DATE(payment_date)";
     $dailyResult = $conn->query($dailyQuery);
     $dailyRevenue = [];
@@ -19,7 +19,7 @@ function calculateRevenue($conn)
     // Tổng thu nhập theo tháng
     $monthlyQuery = "SELECT DATE_FORMAT(payment_date, '%Y-%m') AS month, SUM(amount) AS total_revenue
                      FROM payments
-                     WHERE status = 'paid'
+                     WHERE status = 'completed'
                      GROUP BY DATE_FORMAT(payment_date, '%Y-%m')";
     $monthlyResult = $conn->query($monthlyQuery);
     $monthlyRevenue = [];
@@ -30,7 +30,7 @@ function calculateRevenue($conn)
     // Tổng thu nhập theo năm
     $yearlyQuery = "SELECT YEAR(payment_date) AS year, SUM(amount) AS total_revenue
                     FROM payments
-                    WHERE status = 'paid'
+                    WHERE status = 'completed'
                     GROUP BY YEAR(payment_date)";
     $yearlyResult = $conn->query($yearlyQuery);
     $yearlyRevenue = [];

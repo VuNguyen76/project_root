@@ -29,9 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $insertOrderItemQuery = "INSERT INTO order_items (order_id, product_id, quantity, price) VALUES ('$orderId', '$productId', '$quantity', '$price')";
                 if (!$conn->query($insertOrderItemQuery)) {
                     echo "Lỗi khi thêm sản phẩm vào đơn hàng: " . $conn->error;
+                    exit();
                 }
             } else {
                 echo "Lỗi: Không tìm thấy sản phẩm với ID $productId.";
+                exit();
             }
         }
 
@@ -40,6 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $insertPaymentQuery = "INSERT INTO payments (order_id, payment_date, amount, status, user_id) VALUES ('$orderId', '$orderDate', '$totalAmount', '$paymentStatus', '$userId')";
         if (!$conn->query($insertPaymentQuery)) {
             echo "Lỗi khi thêm thanh toán: " . $conn->error;
+            exit();
         }
 
         // Chuyển hướng đến trang xác nhận thành công

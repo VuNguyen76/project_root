@@ -129,136 +129,206 @@ function getProductsByBrand($brand_id, $conn)
 <div class="panel-product">
     <div class="uk-section uk-section-muted">
 
-        <!-- Sản phẩm OPPO -->
-        <div class="pannel-product-container">
-            <h3>iPhone</h3>
-            <div class="uk-grid-match uk-child-width-1-5@m uk-child-width-1-3@s uk-child-width-1-2@xs" uk-grid>
-                <?php
-                $products = getProductsByBrand(1, $conn); // Giả sử brand_id = 1 là OPPO
-                while ($product = $products->fetch_assoc()) {
-                    echo '<div class="uk-card uk-card-default">';
-                    echo '<div class="uk-card-body">';
+        <!-- Panel sản phẩm -->
+        <div class="panel-product">
+            <div class="uk-section uk-section-muted">
+                <div class="pannel-product-container">
+                    <h3>iPhone</h3>
+                    <div class="uk-grid-match uk-child-width-1-5@m uk-child-width-1-3@s uk-child-width-1-2@xs" uk-grid>
+                        <?php
+                        $products = getProductsByBrand(1, $conn); // Giả sử brand_id = 1 là iPhone
+                        while ($product = $products->fetch_assoc()) {
+                            echo '<div class="uk-card uk-card-default">';
+                            echo '<div class="uk-card-body">';
 
-                    // Hiển thị hình ảnh sản phẩm
-                    echo '<div class="product-image">';
-                    echo '<a href="#"><img src="/project_root/uploads/' . htmlspecialchars($product['image']) . '" alt="' . htmlspecialchars($product['name']) . '"></a>';
-                    echo '</div>';
+                            // Hiển thị hình ảnh sản phẩm
+                            echo '<div class="product-image">';
+                            echo '<a href="#"><img src="/project_root/uploads/' . htmlspecialchars($product['image']) . '" alt="' . htmlspecialchars($product['name']) . '"></a>';
+                            echo '</div>';
 
-                    // Hiển thị tên sản phẩm và thương hiệu
-                    echo '<div class="product-name"><a href="#" title="' . htmlspecialchars($product['name']) . '"><h2>' . htmlspecialchars($product['name']) . '</h2></a></div>';
-                    echo '<div class="product-brand"><strong>Thương hiệu:</strong> ' . htmlspecialchars($product['brand_name']) . '</div>';
+                            // Hiển thị tên sản phẩm và thương hiệu
+                            echo '<div class="product-name"><a href="#" title="' . htmlspecialchars($product['name']) . '"><h2>' . htmlspecialchars($product['name']) . '</h2></a></div>';
+                            echo '<div class="product-brand"><strong>Thương hiệu:</strong> ' . htmlspecialchars($product['brand_name']) . '</div>';
 
-                    // Hiển thị mô tả sản phẩm
-                    echo '<div class="product-description"><strong>Mô tả:</strong> ' . htmlspecialchars($product['description']) . '</div>';
+                            // Hiển thị mô tả sản phẩm
+                            echo '<div class="product-description"><strong>Mô tả:</strong> ' . htmlspecialchars($product['description']) . '</div>';
 
-                    // Hiển thị thông tin RAM, ROM và pin
-                    echo '<div class="product-specs">';
-                    echo '<p><strong>RAM:</strong> ' . htmlspecialchars($product['ram']) . '</p>';
-                    echo '<p><strong>ROM:</strong> ' . htmlspecialchars($product['rom']) . '</p>';
-                    echo '<p><strong>Pin:</strong> ' . htmlspecialchars($product['battery']) . '</p>';
-                    echo '</div>';
+                            // Hiển thị thông tin RAM, ROM và pin
+                            echo '<div class="product-specs">';
+                            echo '<p><strong>RAM:</strong> ' . htmlspecialchars($product['ram']) . '</p>';
+                            echo '<p><strong>ROM:</strong> ' . htmlspecialchars($product['rom']) . '</p>';
+                            echo '<p><strong>Pin:</strong> ' . htmlspecialchars($product['battery']) . '</p>';
+                            echo '</div>';
 
-                    // Hiển thị giá bán
-                    echo '<div class="product-price"><div class="price-sale">' . number_format($product['price'], 0) . ' đ</div></div>';
+                            // Hiển thị giá bán
+                            echo '<div class="product-price"><div class="price-sale">' . number_format($product['price'], 0) . ' đ</div></div>';
 
-                    // Nút giỏ hàng và trạng thái
-                    echo '<div class="product-sold color-2"><i class="fas fa-shopping-cart red"></i> <div class="status"><span>Còn hàng</span></div></div>';
+                            // Nút giỏ hàng và trạng thái với thẻ <a> chứa data-product-id
+                            echo '<div class="product-sold color-2">
+                            <a href="javascript:void(0);" class="fas fa-shopping-cart red" data-product-id="' . htmlspecialchars($product['id']) . '"></a>
+                            <div class="status"><span>Còn hàng</span></div>
+                          </div>';
 
-                    echo '</div>';
-                    echo '</div>';
-                }
-                ?>
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                        ?>
+                    </div>
+                </div>
+
+                <!-- Sản phẩm iPhone -->
+                <div class="pannel-product-container">
+                    <h3>Oppo</h3>
+                    <div class="uk-grid-match uk-child-width-1-5@m uk-child-width-1-3@s uk-child-width-1-2@xs" uk-grid>
+                        <?php
+                        $products = getProductsByBrand(2, $conn); // Giả sử brand_id = 2 là iPhone
+                        while ($product = $products->fetch_assoc()) {
+                            echo '<div class="uk-card uk-card-default">';
+                            echo '<div class="uk-card-body">';
+
+                            // Hiển thị hình ảnh sản phẩm
+                            echo '<div class="product-image">';
+                            echo '<a href="#"><img src="/project_root/uploads/' . htmlspecialchars($product['image']) . '" alt="' . htmlspecialchars($product['name']) . '"></a>';
+                            echo '</div>';
+
+                            // Hiển thị tên sản phẩm và thương hiệu
+                            echo '<div class="product-name"><a href="#" title="' . htmlspecialchars($product['name']) . '"><h2>' . htmlspecialchars($product['name']) . '</h2></a></div>';
+                            echo '<div class="product-brand"><strong>Thương hiệu:</strong> ' . htmlspecialchars($product['brand_name']) . '</div>';
+
+                            // Hiển thị mô tả sản phẩm
+                            echo '<div class="product-description"><strong>Mô tả:</strong> ' . htmlspecialchars($product['description']) . '</div>';
+
+                            // Hiển thị thông tin RAM, ROM và pin
+                            echo '<div class="product-specs">';
+                            echo '<p><strong>RAM:</strong> ' . htmlspecialchars($product['ram']) . '</p>';
+                            echo '<p><strong>ROM:</strong> ' . htmlspecialchars($product['rom']) . '</p>';
+                            echo '<p><strong>Pin:</strong> ' . htmlspecialchars($product['battery']) . '</p>';
+                            echo '</div>';
+
+                            // Hiển thị giá bán
+                            echo '<div class="product-price"><div class="price-sale">' . number_format($product['price'], 0) . ' đ</div></div>';
+
+                            // Nút giỏ hàng và trạng thái
+                            // Nút giỏ hàng và trạng thái
+                            echo '<div class="product-sold color-2">
+        <a href="javascript:void(0);" class="fas fa-shopping-cart red" data-product-id="' . htmlspecialchars($product['id']) . '"></a>
+        <div class="status"><span>Còn hàng</span></div>
+      </div>';
+
+
+
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                        ?>
+                    </div>
+                </div>
+
+                <!-- Sản phẩm Redmi -->
+                <div class="pannel-product-container">
+                    <h3>Redmi</h3>
+                    <div class="uk-grid-match uk-child-width-1-5@m uk-child-width-1-3@s uk-child-width-1-2@xs" uk-grid>
+                        <?php
+                        $products = getProductsByBrand(3, $conn); // Giả sử brand_id = 3 là Redmi
+                        while ($product = $products->fetch_assoc()) {
+                            echo '<div class="uk-card uk-card-default">';
+                            echo '<div class="uk-card-body">';
+
+                            // Hiển thị hình ảnh sản phẩm
+                            echo '<div class="product-image">';
+                            echo '<a href="#"><img src="/project_root/uploads/' . htmlspecialchars($product['image']) . '" alt="' . htmlspecialchars($product['name']) . '"></a>';
+                            echo '</div>';
+
+                            // Hiển thị tên sản phẩm và thương hiệu
+                            echo '<div class="product-name"><a href="#" title="' . htmlspecialchars($product['name']) . '"><h2>' . htmlspecialchars($product['name']) . '</h2></a></div>';
+                            echo '<div class="product-brand"><strong>Thương hiệu:</strong> ' . htmlspecialchars($product['brand_name']) . '</div>';
+
+                            // Hiển thị mô tả sản phẩm
+                            echo '<div class="product-description"><strong>Mô tả:</strong> ' . htmlspecialchars($product['description']) . '</div>';
+
+                            // Hiển thị thông tin RAM, ROM và pin
+                            echo '<div class="product-specs">';
+                            echo '<p><strong>RAM:</strong> ' . htmlspecialchars($product['ram']) . '</p>';
+                            echo '<p><strong>ROM:</strong> ' . htmlspecialchars($product['rom']) . '</p>';
+                            echo '<p><strong>Pin:</strong> ' . htmlspecialchars($product['battery']) . '</p>';
+                            echo '</div>';
+
+                            // Hiển thị giá bán
+                            echo '<div class="product-price"><div class="price-sale">' . number_format($product['price'], 0) . ' đ</div></div>';
+
+                            // Nút giỏ hàng và trạng thái
+                            // Nút giỏ hàng và trạng thái
+                            echo '<div class="product-sold color-2">
+        <a href="javascript:void(0);" class="fas fa-shopping-cart red" data-product-id="' . htmlspecialchars($product['id']) . '"></a>
+        <div class="status"><span>Còn hàng</span></div>
+      </div>';
+
+
+
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                        ?>
+                    </div>
+                </div>
+
             </div>
         </div>
 
-        <!-- Sản phẩm iPhone -->
-        <div class="pannel-product-container">
-            <h3>Oppo</h3>
-            <div class="uk-grid-match uk-child-width-1-5@m uk-child-width-1-3@s uk-child-width-1-2@xs" uk-grid>
-                <?php
-                $products = getProductsByBrand(2, $conn); // Giả sử brand_id = 2 là iPhone
-                while ($product = $products->fetch_assoc()) {
-                    echo '<div class="uk-card uk-card-default">';
-                    echo '<div class="uk-card-body">';
 
-                    // Hiển thị hình ảnh sản phẩm
-                    echo '<div class="product-image">';
-                    echo '<a href="#"><img src="/project_root/uploads/' . htmlspecialchars($product['image']) . '" alt="' . htmlspecialchars($product['name']) . '"></a>';
-                    echo '</div>';
+        <?php
+        $conn->close();
+        ?>
+        <!-- JavaScript để xử lý sự kiện bấm vào giỏ hàng -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                document.querySelectorAll(".fas.fa-shopping-cart.red").forEach(function(cartIcon) {
+                    cartIcon.addEventListener("click", function() {
+                        const productId = this.getAttribute("data-product-id");
 
-                    // Hiển thị tên sản phẩm và thương hiệu
-                    echo '<div class="product-name"><a href="#" title="' . htmlspecialchars($product['name']) . '"><h2>' . htmlspecialchars($product['name']) . '</h2></a></div>';
-                    echo '<div class="product-brand"><strong>Thương hiệu:</strong> ' . htmlspecialchars($product['brand_name']) . '</div>';
+                        if (!productId) {
+                            console.error("ID sản phẩm không hợp lệ.");
+                            alert("Có lỗi xảy ra: ID sản phẩm không hợp lệ.");
+                            return;
+                        }
 
-                    // Hiển thị mô tả sản phẩm
-                    echo '<div class="product-description"><strong>Mô tả:</strong> ' . htmlspecialchars($product['description']) . '</div>';
+                        fetch('/project_root/wbingosite.com/components/add_to_cart.php', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    product_id: productId
+                                })
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    alert("Đã thêm sản phẩm vào giỏ hàng!");
+                                    updateCartCount(); // Gọi hàm cập nhật số lượng giỏ hàng
+                                } else {
+                                    alert(data.message || "Có lỗi xảy ra khi thêm sản phẩm.");
+                                }
+                            })
+                            .catch(error => {
+                                console.error("Lỗi:", error);
+                            });
+                    });
+                });
 
-                    // Hiển thị thông tin RAM, ROM và pin
-                    echo '<div class="product-specs">';
-                    echo '<p><strong>RAM:</strong> ' . htmlspecialchars($product['ram']) . '</p>';
-                    echo '<p><strong>ROM:</strong> ' . htmlspecialchars($product['rom']) . '</p>';
-                    echo '<p><strong>Pin:</strong> ' . htmlspecialchars($product['battery']) . '</p>';
-                    echo '</div>';
-
-                    // Hiển thị giá bán
-                    echo '<div class="product-price"><div class="price-sale">' . number_format($product['price'], 0) . ' đ</div></div>';
-
-                    // Nút giỏ hàng và trạng thái
-                    echo '<div class="product-sold color-2"><i class="fas fa-shopping-cart red "></i> <div class="status"><span>Còn hàng</span></div></div>';
-
-                    echo '</div>';
-                    echo '</div>';
+                // Hàm để cập nhật số lượng sản phẩm trong giỏ hàng
+                function updateCartCount() {
+                    fetch('/project_root/wbingosite.com/components/cart_count.php')
+                        .then(response => response.json())
+                        .then(data => {
+                            document.querySelector(".widget-item .number").textContent = data.count;
+                        })
+                        .catch(error => {
+                            console.error("Lỗi khi cập nhật số lượng giỏ hàng:", error);
+                        });
                 }
-                ?>
-            </div>
-        </div>
 
-        <!-- Sản phẩm Redmi -->
-        <div class="pannel-product-container">
-            <h3>Redmi</h3>
-            <div class="uk-grid-match uk-child-width-1-5@m uk-child-width-1-3@s uk-child-width-1-2@xs" uk-grid>
-                <?php
-                $products = getProductsByBrand(3, $conn); // Giả sử brand_id = 3 là Redmi
-                while ($product = $products->fetch_assoc()) {
-                    echo '<div class="uk-card uk-card-default">';
-                    echo '<div class="uk-card-body">';
-
-                    // Hiển thị hình ảnh sản phẩm
-                    echo '<div class="product-image">';
-                    echo '<a href="#"><img src="/project_root/uploads/' . htmlspecialchars($product['image']) . '" alt="' . htmlspecialchars($product['name']) . '"></a>';
-                    echo '</div>';
-
-                    // Hiển thị tên sản phẩm và thương hiệu
-                    echo '<div class="product-name"><a href="#" title="' . htmlspecialchars($product['name']) . '"><h2>' . htmlspecialchars($product['name']) . '</h2></a></div>';
-                    echo '<div class="product-brand"><strong>Thương hiệu:</strong> ' . htmlspecialchars($product['brand_name']) . '</div>';
-
-                    // Hiển thị mô tả sản phẩm
-                    echo '<div class="product-description"><strong>Mô tả:</strong> ' . htmlspecialchars($product['description']) . '</div>';
-
-                    // Hiển thị thông tin RAM, ROM và pin
-                    echo '<div class="product-specs">';
-                    echo '<p><strong>RAM:</strong> ' . htmlspecialchars($product['ram']) . '</p>';
-                    echo '<p><strong>ROM:</strong> ' . htmlspecialchars($product['rom']) . '</p>';
-                    echo '<p><strong>Pin:</strong> ' . htmlspecialchars($product['battery']) . '</p>';
-                    echo '</div>';
-
-                    // Hiển thị giá bán
-                    echo '<div class="product-price"><div class="price-sale">' . number_format($product['price'], 0) . ' đ</div></div>';
-
-                    // Nút giỏ hàng và trạng thái
-                    echo '<div class="product-sold color-2"><i class="fas fa-shopping-cart red red "></i> <div class="status"><span>Còn hàng</span></div></div>';
-
-                    echo '</div>';
-                    echo '</div>';
-                }
-                ?>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-
-<?php
-$conn->close();
-?>
+                // Gọi hàm này khi tải trang để hiển thị số lượng ban đầu
+                updateCartCount();
+            });
+        </script>
