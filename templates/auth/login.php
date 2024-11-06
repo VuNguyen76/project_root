@@ -101,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
         </form>
         <div class="text-center mt-3">
-            <a href="#">Quên mật khẩu?</a>
+            <a href="../../wbingosite.com/components/pages/forget.php">Quên mật khẩu?</a>
         </div>
     </div>
 

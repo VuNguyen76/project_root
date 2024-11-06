@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<title>Web Phone</title>
 <head>
     <?php require_once 'components/head.php' ?>
 </head>

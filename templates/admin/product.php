@@ -20,7 +20,10 @@ $totalProducts = $products->num_rows;
 <link rel="stylesheet" type="text/css" href="/project_root/assets/css/product.css">
 <div class="container">
     <div class="add-product">
-        <div class="heading-1 t-left"><span>Danh sách sản phẩm</span></div>
+        <div class="heading-1">
+            <a class="t-left" href="#">Trở về </a>
+            <span>Danh sách sản phẩm</span>
+        </div>
 
         <!-- Hiển thị tổng số lượng sản phẩm -->
         <div class="product-count">
