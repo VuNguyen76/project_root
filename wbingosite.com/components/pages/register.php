@@ -50,6 +50,7 @@ $conn->close();
 
 <body>
   <div class="register-container">
+  <a href="http://localhost/project_root/wbingosite.com/home.php"><img src="../../resources/images/thoat.jpg" width="25px"></a>
     <div class="register-header">ĐĂNG KÝ</div>
     <form method="POST" action="register.php">
       <div class="input-group">

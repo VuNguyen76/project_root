@@ -48,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <div class="login-container">
+    <a href="http://localhost/project_root/wbingosite.com/home.php"><img src="../../resources/images/thoat.jpg" width="25px"></a>
         <div class="login-header">ĐĂNG NHẬP</div>
         <form method="POST" action="login.php">
             <div class="input-group">

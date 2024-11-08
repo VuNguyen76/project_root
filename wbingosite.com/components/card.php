@@ -14,7 +14,7 @@
   <section class="container-card">
     <div class="container-card-mini">
       <div class="card-title">
-        <h5><a href="#!"><i class="fas fa-arrow-circle-left"></i> Continue shopping</a></h5>
+        <h5><a href="http://localhost/project_root/wbingosite.com/home.php"><i class="fas fa-arrow-circle-left"></i> Continue shopping</a></h5>
         <hr>
         <div class="container-card-product">
           <?php
@@ -38,26 +38,35 @@
 
             if ($productResult->num_rows > 0) {
               while ($product = $productResult->fetch_assoc()) {
-                echo "<div class='card-product-item b2'>";
-                echo "<div class='item-image pad-20'>";
-                echo "<input type='checkbox' class='chon' value='" . $product['price'] . "' data-product-id='" . $product['id'] . "'>";
-                echo "<div class='border-soild'><img src='/project_root/uploads/" . htmlspecialchars($product['image']) . "' alt='" . htmlspecialchars($product['name']) . "'></div>";
-                echo "<div class='item-info'>";
-                echo "<p>" . htmlspecialchars($product['name']) . "</p>";
-                echo "<p>" . htmlspecialchars($product['ram']) . " RAM, " . htmlspecialchars($product['rom']) . " ROM</p>";
-                echo "<p>" . htmlspecialchars($product['battery']) . " mAh</p>";
-                echo "<p><em>" . htmlspecialchars($product['description']) . "</em></p>";
-                echo "</div>";
-                echo "</div>";
-                echo "<div class='dis-flex'>";
-                echo "<p>Giá:</p>";
-                echo "<p>" . number_format($product['price'], 0) . " VND</p>";
-                echo "</div>";
-                echo "<a href='delete_from_cart.php?product_id=" . $product['id'] . "'><i class='fas fa-trash-alt pad-5'></i></a>";
-                echo "</div>";
+                // Tạo liên kết đến trang chi tiết sản phẩm
+                $productLink = 'http://localhost/project_root/wbingosite.com/components/ProductDetails.php?id=' . htmlspecialchars($product['id']);
+                  // Thêm liên kết vào phần chi tiết sản phẩm (chút thích)
+                echo "<a href='" . $productLink . "' class='product-link'>";
+
+                  echo "<div class='card-product-item b2'>";                 
+                  echo "<div class='item-image pad-20'>";                
+                  echo "<input type='checkbox' class='chon' value='" . $product['price'] . "' data-product-id='" . $product['id'] . "'>";
+                  echo "<div class='border-soild'><img src='/project_root/uploads/" . htmlspecialchars($product['image']) . "' alt='" . htmlspecialchars($product['name']) . "'></div>";
+                  echo "<div class='item-info'>";
+                  echo "<p>" . htmlspecialchars($product['name']) . "</p>";
+                  echo "<p>" . htmlspecialchars($product['ram']) . " RAM, " . htmlspecialchars($product['rom']) . " ROM</p>";
+                  echo "<p>" . htmlspecialchars($product['battery']) . " mAh</p>";
+                  echo "</div>"; 
+                  echo "</div>";
+                  echo "<div class='dis-flex'>";
+                  echo "<p>Giá:</p>";
+                  echo "<p>" . number_format($product['price'], 0) . " VND</p>";
+                  echo "</div>";
+                  
+                  // Liên kết để xóa sản phẩm khỏi giỏ hàng
+                  echo "<a href='delete_from_cart.php?product_id=" . $product['id'] . "'><i class='fas fa-trash-alt pad-5'></i></a>";                  
+                  echo "</div>";
+                echo "</a>";  // Kết thúc liên kết  
               }
-            } else {
+          }
+           else {
               echo "<p>Không có sản phẩm nào.</p>";
+              echo "<a href='http://localhost/project_root/wbingosite.com/components/ProductDetails.php?id=". htmlspecialchars($product['id']) ."</a>";
             }
           } else {
             echo "<p>Giỏ hàng trống.</p>";
