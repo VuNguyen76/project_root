@@ -1,0 +1,75 @@
+/* Đảm bảo toàn bộ trang có chiều cao tối thiểu là 100vh */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Thiết lập container-fluid bao phủ toàn bộ chiều cao */
+.container-fluid {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Bao phủ toàn bộ chiều cao */
+}
+
+/* Nội dung chính sẽ chiếm toàn bộ không gian trống */
+.content {
+    flex: 1;
+    display: flex;
+}
+
+/* Sidebar và nội dung chính */
+.sidenav {
+    background-color: #f1f1f1;
+    width: 250px; /* Chiều rộng sidebar */
+    padding-top: 20px;
+    height: 100%; /* Chiều cao đầy đủ */
+}
+
+.main-content {
+    padding: 20px;
+    background-color: #fff;
+    width: 100%;
+    overflow-y: auto; /* Thêm thanh cuộn nếu nội dung quá nhiều */
+}
+
+/* Responsive cho màn hình nhỏ */
+@media screen and (max-width: 767px) {
+    .content {
+        flex-direction: column;
+}
+
+    .sidenav {
+        width: 100%; /* Sidebar chiếm toàn bộ chiều ngang trên màn hình nhỏ */
+        height: auto; /* Đảm bảo chiều cao tự động khi cuộn */
+    }
+}
+
+/* Sticky footer */
+.footer {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
+    position: relative; /* Đặt footer ở cuối khi nội dung ít */
+    bottom: 0;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,138 @@
+
+.container-card {
+  margin: 0 auto; 
+  width:max-content; 
+  border:solid 1px;
+  
+}
+
+p {
+  font-size: 16px; /* Giảm font-size */
+  margin: 5px; /* Giảm khoảng cách */
+}
+
+.card-title-mini,
+.card-product-item,
+.item-image,
+.dis-flex,
+.border-soild,
+.container-checkpay,
+.tongphu,
+.vanchuyen,
+.tongcong {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-card-mini {
+  border: 1px solid;
+  background-color: Snow;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Giảm độ mờ bóng */
+}
+
+.card-title h5,
+a {
+  font-size: 22px; /* Giảm font-size */
+  margin: 10px 0 10px 8px; /* Giảm khoảng cách */
+  text-decoration: none;
+  color: black;
+}
+
+.card-title-mini {
+  margin: 0 10px; /* Giảm khoảng cách */
+}
+
+.pad-5 {
+  margin: 5px;
+}
+
+.flex {
+  flex-basis: 200px; /* Giảm kích thước */
+}
+
+.pad-20 {
+  margin: 0 10px;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.2); /* Thu nhỏ checkbox */
+  margin: 0 3px;
+  accent-color: rgb(156, 21, 21);
+}
+
+.card-product-item {
+  border-radius: 5px;
+  border: solid 1px;
+  margin: 5px;
+  height: max-content;
+}
+
+.border-soild {
+  width: 80px; /* Giảm kích thước khung */
+  height: 90px;
+  overflow: hidden;
+  margin: 2px 3px;
+}
+
+.border-soild img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+}
+
+.container-checkpay img {
+  width: 80px; /* Giảm kích thước ảnh */
+  height: 80px;
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.infor-pay input[type="text"] {
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  width: 300px; /* Giảm chiều rộng */
+  height: 40px; /* Giảm chiều cao */
+  text-align: center;
+  margin: 2px 15px 10px 20px;
+}
+
+button {
+  margin: 5px;
+  width: 300px; /* Giảm chiều rộng */
+  background-color: #004085;
+  color: #ffffff;
+  padding: 8px 15px; /* Giảm padding */
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #003366;
+}
+
+.b3 {
+  background-color: #8f99d9;
+  border-radius: 7px;
+}
+
+/* Media Query cho màn hình nhỏ hơn 768px */
+@media (max-width: 900px) {
+  .container-card-product {
+    display: block;
+    margin-left: 0;
+  }
+  
+  .container-checkpay {
+    justify-content: center;
+  }
+  
+  .border-soild img {
+    width: 60px; /* Giảm kích thước ảnh hơn nữa */
+  }
+  
+  button {
+    width: 100%; 
+    margin: 0;
+  }
+}
