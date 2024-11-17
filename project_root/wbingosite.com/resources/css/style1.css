@@ -1,0 +1,313 @@
+    /*-------------------------------------Trang chi tiết sản phẩm  --------------------------------------------------------*/
+    .product-container-details {
+        display: flex;
+        /* Sử dụng flexbox để sắp xếp ảnh và thông tin sản phẩm */
+        margin: 20px;
+        padding-left: 50px;
+        
+    }
+    .product-image-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 300px;
+    }
+    
+    .product-image-details img#main-image {
+        width: auto;
+        height: 400px; /* Chiều cao cố định */
+        max-width: 100%; /* Đảm bảo không vượt quá kích thước container */
+        object-fit: contain; /* Giữ nguyên tỷ lệ của ảnh */
+        margin-bottom: 10px;
+        border: 1px solid #ccc; /* Thêm viền nếu cần để tạo khung cho ảnh */
+    }
+    
+    .img-1 {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .img-1 img {
+        width: 80px;
+        height: 80px; /* Chiều rộng và chiều cao cố định cho ảnh nhỏ */
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+    
+/* Hiệu ứng khi di chuột vào ảnh nhỏ */
+.img-1 img:hover {
+    transform: scale(1.1);
+    border: 2px solid #5ec4e6; /* Thêm viền màu xanh khi di chuột */
+}
+    .product-info-details {
+        margin-left: 10px;
+        font-size: larger;
+        border: 1px solid #ddd;
+        height: 400px;
+        padding-left: 10px;
+        
+    }
+
+    .product-details{
+        font-family: Arial, sans-serif;
+        
+        padding: 15px;
+        margin: 20px 0;
+        width: 500px;
+    }
+
+    .product-name-details,
+    .product-price-details,
+    .product-rom-details,
+    .product-ram-details,
+    .product-battery-details {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .product-description-details {
+        margin-top: 15px;
+        line-height: 1.5;
+        color: #555;
+    }
+
+    .stock-status {
+        font-weight: bold;
+        color: green;
+        /* Màu xanh cho thông báo còn hàng */
+    }
+
+    .product-quantity-actions {
+        display: flex;
+        /* Sử dụng Flexbox để sắp xếp các phần tử theo chiều ngang */
+        align-items: center;
+        /* Căn giữa theo chiều dọc */
+        gap: 10px;
+        /* Khoảng cách giữa các phần tử */
+    }
+
+    .quantity-controls {
+        display: flex;
+        /* Sắp xếp nút và ô nhập số lượng theo chiều ngang */
+        align-items: center;
+        /* Căn giữa nút và ô nhập theo chiều dọc */
+    }
+
+    .quantity-buttons {
+        display: flex;
+        /* Sắp xếp các nút tăng/giảm và ô nhập số lượng theo chiều ngang */
+        align-items: center;
+        /* Căn giữa theo chiều dọc */
+    }
+
+    input[type="number"] {
+        width: 50px;
+        /* Đặt chiều rộng cho ô nhập số lượng */
+        text-align: center;
+        /* Căn giữa nội dung trong ô nhập */
+    }
+
+    .flex {
+        display: flex;
+    }
+    .magin-left-15{margin-left: 15px;}
+    .magin-left-15 button{background-color:rgb(195, 195, 236);}
+/* CSS cho nút thoát về trang chủ */
+.back-to-home {
+    text-align: center;
+    margin-top: 20px;
+}
+.back-to-home a {
+    padding: 10px 20px;
+    background-color: #112211;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.back-to-home a:hover {
+    background-color: #e38673;
+}
+
+ /* Payment */
+                .payment-container {
+                    font-family: Arial, sans-serif;
+                    width: 50%;
+                    margin: 10px auto;
+                    background-color: #fff;
+                    padding: 20px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                }
+
+                .payment-container  h2 {
+                    text-align: center;
+                    color: #333;
+                }
+
+                .customer-infor  h3 {
+                    color: #333;
+                    margin-bottom: 10px;
+                }
+
+                .customer-info label {
+                    display: block;
+                    margin:5px 0 ;
+                    color: #555;
+                }
+
+                .customer-info input, select {
+                    width: 90%;
+                    padding: 10px;
+                    margin-bottom: 10px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                }
+
+                .order-summary button {
+                    width: 90%;
+                    padding: 10px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+
+                .order-summary  button:hover {
+                    background-color: #45a049;
+                }
+
+                .customer-info, .payment-info, .order-summary {
+                    margin-bottom: 20px;
+                }
+
+                .bank-transfer-info label {
+                    display: block;
+                    margin:10px 0 5px ;
+                }
+
+                .bank-transfer-info input {
+                    width: 90%;
+                    padding: 10px;
+                }
+
+                select {
+                    padding: 10px;
+                }
+ /* Thank you */
+  .thank-you-container {
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.thank-you-title {
+    text-align: center;
+    color: #333;
+}
+
+.thank-you-message {
+    text-align: center;
+    color: #555;
+    font-size: 16px;
+}
+
+.order-summary, .order-details, .order-total, .payment-method {
+    margin-bottom: 20px;
+}
+
+.order-summary-title, .order-details-title, .order-total-title {
+    color: #333;
+}
+
+.order-summary-item {
+    color: #555;
+}
+
+.order-details-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.order-details-table, th, td {
+    border: 1px solid #ddd;
+}
+
+.order-details-table-header {
+    padding: 8px;
+    text-align: left;
+    background-color: #f4f4f4;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+.confirmation-buttons {
+    text-align: center;
+}
+
+.confirmation-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.confirmation-button:hover {
+    background-color: #45a049;
+}
+
+.confirmation-button:last-child {
+    background-color: #2196F3;
+    margin-left: 10px;
+}
+
+.confirmation-button:last-child:hover {
+    background-color: #1976D2;
+}
+ /* Theodoi */
+
+            .tracking-container {
+                font-family: Arial, sans-serif;
+                width: 50%;
+                margin: 20px auto;
+                background-color: #fff;
+                padding: 20px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .tracking-container h2 {
+                text-align: center;
+                color: #333;
+            }
+
+            .order-status {
+                margin-top: 20px;
+                padding: 15px;
+                background-color: #e7f7e7;
+                border: 1px solid #4CAF50;
+                border-radius: 5px;
+            }
+
+            .order-status h3 {
+                margin: 0;
+                font-size: 1.2em;
+                color: #333;
+            }
+
+            .order-status p {
+                color: #333;
+                font-size: 1.1em;
+            }
+.red{color: red;}

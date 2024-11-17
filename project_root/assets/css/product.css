@@ -1,0 +1,143 @@
+#container{
+    width: 100%;
+    position: relative;
+    display: block;        
+    margin-top: 20px;
+}
+
+.add-product{
+    margin: 0 auto;
+    width: 1140px;
+    position: relative;
+    display: block;
+    clear: both;
+}
+
+.heading-1{
+    width: 100%;
+    height: max-content;
+    font-size: 30px;
+    background-color: rgb(207 178 226);
+    padding: 2px;
+    text-align: center;
+}
+
+.heading-1 span{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #99291d; /* Phông chữ hiện đại */
+}
+
+.product-grid {
+    width: 22%; /* Sửa chiều rộng để các sản phẩm được căn đều */
+    display: inline-block; /* Hiển thị theo dòng để sắp xếp thành lưới */
+    vertical-align: top; /* Căn chỉnh các sản phẩm theo hàng trên cùng */
+    background-color: aquamarine;
+    margin: 15px; /* Tạo khoảng cách giữa các sản phẩm */
+}
+
+.product-item {
+    margin: 10px 0; /* Căn giữa nội dung sản phẩm */
+    padding: 10px;
+    width: 100%;
+    height: auto; /* Đặt chiều cao cố định cho các sản phẩm */
+    background-color: rgb(251, 245, 245);
+    box-sizing: border-box; /* Đảm bảo padding không ảnh hưởng đến chiều rộng */
+    display: flex;
+    flex-direction: column; /* Xếp các thành phần theo cột */
+    justify-content: space-between; /* Giãn đều các thành phần */
+}
+
+.product-item img {
+    width: 100%;
+    height: auto;
+    max-height: 150px; /* Giới hạn chiều cao ảnh */
+    object-fit: contain; /* Đảm bảo ảnh vừa khung mà không bị méo */
+}
+
+.product-review {
+    color: rgb(32, 15, 5);
+}
+
+.product-name a {
+    color: black;
+}
+
+.status {
+    display: flex;
+    justify-content: space-between; /* Đẩy các phần tử sang hai bên */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    padding: 5px 10px;
+}
+
+.product-sold progress {
+    width: 100%;
+}
+
+.clear-list {
+    clear: both;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h2 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.product-count {
+    background-color: #f8f9fa;
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-count h3 {
+    color: #28a745;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product-grid {
+    margin-bottom: 30px;
+}
+
+.product-item .image img {
+    max-width: 150px;
+}
+
+.product-name a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.product-brand,
+.product-description,
+.product-specs {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.product-price {
+    margin-top: 10px;
+}
+
+.price-sale {
+    color: #d9534f;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.clear-list {
+    clear: both;
+}
+.t-left{text-align: left;}
